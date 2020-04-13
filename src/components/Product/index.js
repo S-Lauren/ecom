@@ -4,9 +4,11 @@ const Product = () => {
 
   // State here... 
   const [filterProduct, setFilterProduct] = useState([]); 
+  const [img, setImg] = useState([]);
+
+  const apiKey =  '14014759-eeee2880afbdb8bf4148d4071';
 
 
-// Update State Here....
   useEffect(() => {
     fetch('http://localhost:4000/products')
       .then(response => response.json())
@@ -15,11 +17,25 @@ const Product = () => {
 
 
 
+  useEffect( () => {
+    fetch( `https://pixabay.com/api/?key=${apiKey}&q=leather+clothes`)
+    .then(resp => resp.json())
+    .then(data => {
+      
+    
+      setImg(data.hits.map(x => {
+        return x.previewURL;
+        }));
+    })
+
+  }, [img]);
+
   return (
 
       <>
+    
         <div className="row" >
-          <ProductItem products={filterProduct}/>
+          <ProductItem products={filterProduct} images={img}/>
         </div>
       </>
 
