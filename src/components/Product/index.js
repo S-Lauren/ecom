@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'; 
-// import ProductItem from '../ProductItem'; 
+import ProductItem from '../ProductItem'; 
 const Product = () => {
 
   // State here... 
@@ -8,17 +8,16 @@ const Product = () => {
 
 // Update State Here....
   useEffect(() => {
-    fetch('http://localhost:4000/posts')
+    fetch('http://localhost:4000/products')
       .then(response => response.json())
       .then(data => setFilterProduct(data));
     }, []);
 
 
-  console.log(filterProduct);
 
   return (
       <>
-        {/* <ProductItem products={filterProduct}/> */}
+        <ProductItem products={filterProduct}/>
       </>
 
   )

@@ -3,7 +3,11 @@ import React from 'react';
 const ProductItem = (props) => {
 return(
   <>
-    {props.products.map(x => <p>x</p>)}
+  
+      {props.products.map((x,i) => {
+        return <div key={i}>{x.title}</div>
+      })}
+ 
   </>
 
   )
