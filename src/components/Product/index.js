@@ -16,8 +16,11 @@ const Product = () => {
 
 
   return (
+
       <>
-        <ProductItem products={filterProduct}/>
+        <div className="row" >
+          <ProductItem products={filterProduct}/>
+        </div>
       </>
 
   )
